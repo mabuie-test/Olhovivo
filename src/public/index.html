@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Painel de Monitoramento Consensual" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css" rel="stylesheet">
+  <title>MonitorApp - Painel de Controle</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+    }
+    #root {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .mapboxgl-canvas {
+      position: absolute !important;
+    }
+  </style>
+</head>
+<body>
+  <noscript>Você precisa habilitar JavaScript para executar esta aplicação.</noscript>
+  <div id="root"></div>
+  
+  <!-- Configuração do Mapbox -->
+  <script>
+    // Inicializações globais podem ser feitas aqui
+    if (process.env.NODE_ENV === 'production') {
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    }
+  </script>
+</body>
+</html>
